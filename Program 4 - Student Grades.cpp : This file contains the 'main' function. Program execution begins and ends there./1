@@ -1,0 +1,23 @@
+// Program 4 - Student Grades.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+using namespace std;
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main()
+{
+    ifstream studentsData;
+    studentsData.open("students.dat");
+    while (!studentsData.eof()) { // eof steht dafur das nach ende des Ordners es aufhoert zu lesen denn sonst ware es eine unentliche Schleife 
+        string first, last, classifcation;
+        int grade;
+        studentsData >> first >> last >> classifcation >> grade;
+        cout << "myData " << first << '\t' << last << '\t' << classifcation << '\t' << grade << '\n';
+
+    }
+
+    std::cout << "Hello World!\n";
+}
