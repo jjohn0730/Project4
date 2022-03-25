@@ -1,0 +1,66 @@
+
+
+using namespace std;
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main()
+{
+    ifstream studentsData;
+    studentsData.open("students.dat");
+
+    int f = 0;
+    int s = 0;
+    int j = 0;
+    int se = 0;
+
+    //now name integer for lowest higest and avarage
+    int highest = 0;
+    int lowest = 0;
+    int people = 0;
+    double avarege = 0.0;
+
+
+    string first, last, classification;
+    int grade;
+
+    while (!studentsData.eof())
+    {
+        // get all the values out of the ordner damit man etwas zum einlesen hat.
+        studentsData >> first >> last >> classification >> grade;
+
+        if (grade > highest)
+            highest = grade;
+        if (grade < highest)
+            lowest = grade;
+
+        if (classification == "freshman")
+            f++;
+        if (classification == "sophomore")
+            s++;
+        if (classification == "junior")
+            j++;
+        if (classification == "senior")
+            se++;
+
+        avarege += grade;
+        people++;
+    }
+
+
+    cout << "highest" << highest << '\n';
+    cout << "lowest" << lowest << '\n';
+    cout << "avarege" << avarege / people << '\n';
+
+ 
+
+    cout << "freshmen" << f << '\n';
+    cout << "sophomore" << s << '\n';
+    cout << "junior" << j << '\n';
+    cout << "senior" << se << '\n';
+
+
+
+}
